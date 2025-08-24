@@ -1,127 +1,83 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: url('files/baggrund2.jpg') no-repeat center center fixed; /* baggrundsbillede */
+  background: url('files/baggrund2.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #333;
+  color: #2c3e50;
+  line-height: 1.6;
 }
 
-/* overlay til at mørkne baggrunden lidt */
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   background: rgba(0,0,0,0.35);
   z-index: 0;
 }
 
-@media (max-width: 700px) {
-  .photo {
-    float: none;
-    display: block;
-    margin: 0 auto 16px auto;
-    width: 60vw;
-    height: auto;
-    shape-outside: none;
-  }
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(44,62,80,0.9);
+  padding: 14px 0;
+  text-align: center;
+  z-index: 200;
+  border-bottom: 3px solid #2980b9;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
 }
 
 nav button {
-  margin: 0 10px;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(145deg,#3498db,#2980b9);
-  color: white;
+  margin: 0 12px;
+  padding: 10px 20px;
+  border: 2px solid #2980b9;
+  background: #3498db;
+  color: #fff;
   cursor: pointer;
   font-size: 15px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
 }
 nav button:hover {
+  background: #2980b9;
+  border-color: #2980b9;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(44,62,80,0.9);
-  padding: 12px;
-  text-align: center;
-  z-index: 200;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 main {
   display: flex;
   justify-content: center;
-  padding: 30px;
-  margin-top: 70px;
+  padding: 40px 20px;
+  margin-top: 90px;
+  z-index: 1;
+  position: relative;
 }
 
 .overlay {
   position: fixed;
-  top: 60px;
+  top: 80px;
   left: 100%;
   width: 100%;
-  height: calc(100% - 60px);
+  height: calc(100% - 80px);
   background: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 30px;
+  padding: 40px 20px;
   transition: left 0.5s ease;
   z-index: 150;
 }
-
-.photo {
-  position: static;
-  float: right;
-  width: 180px;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 2px solid #fff;
-  margin: 6px 0 12px 18px;
-  shape-outside: inset(0 round 8px);
-  shape-margin: 12px;
-}
-
-#infoAboutMe {
-  line-height: 1.7;
-  text-align: justify;
-  hyphens: auto;
-  background: rgba(255,255,255,0.95);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  position: relative;
-}
-
-/* Billede inden i infoAboutMe */
-#infoAboutMe .photo {
-  float: right;
-  width: 180px;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin: 0 0 12px 18px;
-  shape-outside: inset(0 round 8px);
-  shape-margin: 12px;
-}
-
 .overlay.active {
   left: 0;
 }
-
 .overlay .a4 {
   animation: slideIn 0.5s ease forwards;
-  background: rgba(255,255,255,0.95);
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.97);
+  border: 2px solid #2980b9;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 @keyframes slideIn {
@@ -131,36 +87,69 @@ main {
 
 .a4 {
   width: 800px;
+  max-width: 95%;
   height: 80vh;
   padding: 40px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  border: 2px solid #ccc;
+  background: rgba(255,255,255,0.95);
+  color: #2c3e50;
   position: relative;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.9);
-  
+  overflow-y: auto;
+}
+
+#infoAboutMe {
+  line-height: 1.8;
+  text-align: justify;
+  background: rgba(255,255,255,0.96);
+  padding: 24px;
+  border: 2px solid #2980b9;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.photo, 
+#infoAboutMe .photo {
+  float: right;
+  width: 200px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 0;              
+  margin: 0 0 16px 22px;
+  shape-outside: inset(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 700px) {
+  .photo,
+  #infoAboutMe .photo {
+    float: none;
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 70vw;
+    height: auto;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 20px; right: 20px;
+  padding: 10px 16px;
+  background: #fff;
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.close:hover {
+  background: #e74c3c;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 iframe {
   width: 100%;
-  height: calc(90vh - 150px);
-  border: none;
-  border-radius: 6px;
-}
-
-.close {
-  position: absolute;    /* placerer knappen relativt til .a4 */
-  top: 20px;             /* afstand fra toppen */
-  right: 20px;           /* afstand fra højre kant */
-  padding: 10px 16px;
-  background: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  z-index: 10;           /* sikrer, at knappen ligger over alt indhold */
-}
-.close:hover {
-  background: #c0392b;
-  transform: translateY(-2px);
+  height: calc(90vh - 160px);
+  border: 2px solid #ccc;
 }
