@@ -10,6 +10,7 @@
     <nav>
       <button onclick="showPage('bachelor')">Bachelor Project</button>
       <button onclick="showPage('sprog')">Language skills</button>
+      <button onclick="showPage('contact')">Contact me</button>
     </nav>
   </header>
 
@@ -43,37 +44,61 @@
     </div>
 
     <div id="sprog" class="overlay">
-  <div class="a4">
-    <h2>Language skills</h2>
-    
-    <p>During my Bachelor's degree in Computer Science, 
-      I have taken courses where we implemented our own programming language and
-       built a compiler. This has given me a solid understanding of programming 
-       languages, making it easier for me to quickly learn and work with new languages</p>
-    
-    <h3>Briefly worked with</h3>
-    <ul>
-      <li>x86 assembly</li>
-      <li>MySQL</li>
-      <li>Scala</li>
-      <li>C</li>
-      <li>Go</li>
+      <div class="a4">
+        <h2>Language skills</h2>
+        
+        <p>During my Bachelor's degree in Computer Science, 
+          I have taken courses where we implemented our own programming language and
+          built a compiler. This has given me a solid understanding of programming 
+          languages, making it easier for me to quickly learn and work with new languages</p>
+        
+        <h3>Briefly worked with</h3>
+        <ul>
+          <li>x86 assembly</li>
+          <li>MySQL</li>
+          <li>Scala</li>
+          <li>C</li>
+          <li>Go</li>
 
-    </ul>
+        </ul>
+        
+        <h3>Deeper understanding</h3>
+        <ul>
+          <li>llvm</li>
+          <li>Java</li>
+          <li>Javascript</li>
+          <li>html</li>
+          <li>CSS</li>
+          <li>Python</li>
+          <li>Ocaml</li>
+        </ul>
+        
+        <button class="close" onclick="closePage('sprog')">Luk</button>
+      </div>
+      <div id="contact" class="overlay">
+  <div class="a4">
+    <button class="close" onclick="closePage('contact')">Luk</button>
     
-    <h3>Deeper understanding</h3>
-    <ul>
-      <li>llvm</li>
-      <li>Java</li>
-      <li>Javascript</li>
-      <li>html</li>
-      <li>CSS</li>
-      <li>Python</li>
-      <li>Ocaml</li>
-    </ul>
+    <h2>Contact Me</h2>
     
-    <button class="close" onclick="closePage('sprog')">Luk</button>
+    <div class="contact-item">
+      <label>Email:</label>
+      <div class="contact-value" onclick="copyToClipboard('frederikhvidbjergmikkelsen@gmail.com')">
+        frederikhvidbjergmikkelsen@gmail.com
+        <span class="copy-text">📋</span>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <label>Phone:</label>
+      <div class="contact-value" onclick="copyToClipboard('23 44 86 64')">
+        +45 23 44 86 64
+        <span class="copy-text">📋</span>
+      </div>
+    </div>
+
   </div>
+</div>
 </div>
   </main>
   <script src="frederik.js"></script>

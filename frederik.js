@@ -20,3 +20,7 @@ function closePage(pageId) {
   const page = document.getElementById(pageId);
   page.classList.remove('active');
 }
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text)
+}
